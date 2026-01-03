@@ -8,3 +8,4 @@ Following guides are available:
 - [How I setup secure boot](setup-secure-boot.md)
 - [How I setup hibernation](use-hibernation.md)
 - [How I fixed my broken dual boot bootloader](fix-broken-bootloader.md)
+- [How I set up my Windows bootloader entry with systemd-boot](setup-windows-bootloader-entry.md)

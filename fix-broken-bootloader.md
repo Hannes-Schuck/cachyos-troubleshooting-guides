@@ -67,3 +67,19 @@ I wanted to add Windows to my systemd-boot so I don't need to change the boot or
 The guides I found online didn't work for me yet so I asked the last possible friendly helper ChatGPT (I know, I am going to hell for this) which just told me to copy the Windows boot loader into my Linux EFI partition: **which worked!** and probably was the only reason I ran into this problem at the end of the day... (I was aware that the Windows bootloader would not be updated that way, but I ran into this problem earlier)
 
 Currently I am searching for a better way to deal with the Windows boot entry.
+
+### 5. It broke again
+> [!IMPORTANT]  
+> Update: So for some reason this stopped working. This is why I now use the method of copying the entire Windows bootloader from the Windows boot partition to the EFI partition.
+
+Mount the windows boot partition. In my case it is `/dev/nvme0n1p1`:
+
+`mkdir /mnt/win_efi`
+
+`sudo mount /dev/nvme0n1p1 /mnt/win_efi/`
+
+Then copy the boot loader.
+
+`sudo cp -r /mnt/win_efi/EFI/Microsoft/ /boot/EFI/`
+
+And that should be it. The entry should appear automatically when restarting the system.
